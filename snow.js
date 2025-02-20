@@ -1,68 +1,85 @@
-function createSnowflake() {
-            const snowflake = document.createElement("div");
-            snowflake.innerHTML = "❄";
-            snowflake.classList.add("snowflake");
-
-            snowflake.style.left = Math.random() * 100 + "vw";
-            snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s"; // Entre 2 y 5s
-            snowflake.style.opacity = Math.random();
-            snowflake.style.fontSize = (Math.random() * 10 + 10) + "px"; // Entre 10px y 20px
-
-            document.body.appendChild(snowflake);
-
-            setTimeout(() => {
-                snowflake.remove();
-            }, 5000);
-        }
-
-        setInterval(createSnowflake, 200);
-
 document.addEventListener("DOMContentLoaded", function () {
     const esquiador = document.querySelector(".borde-contenedor img");
     const contenedor = document.querySelector(".borde-contenedor");
-    
-    let posicionX = 45; // Posición inicial en X (horizontal)
-    let posicionY = 140; // Posición inicial en Y (vertical)
+    const botonInicio = document.querySelector("#iniciar");
+    let jugando = false;
+    let posicionX = 45;
+
+    function start() {
+        botonInicio.style.display = "none";
+        jugando = true;
+        setInterval(crearArbol, 8000);
+        setInterval(createSnowflake, 500);
+        setInterval(detectarColision, 100);
+    }
 
     document.addEventListener("keydown", function (event) {
+        if (!jugando) return;
+
         if (event.key === "ArrowLeft" && posicionX > 5) {
-            posicionX -= 4; // Mueve a la izquierda
+            posicionX -= 3;
         } else if (event.key === "ArrowRight" && posicionX < 85) {
-            posicionX += 4; // Mueve a la derecha
-        } else if (event.key === "ArrowDown" && posicionY <  50) {
-            posicionY -= 10; // Mueve hacia abajo
+            posicionX += 3;
         }
 
         esquiador.style.left = posicionX + "%";
-        esquiador.style.bottom = posicionY + "px"; // Mueve en el eje Y
     });
+
+    function crearArbol() {
+        if (!jugando) return;
+
+        let arbol = document.createElement("img");
+        arbol.src = "pino.png";
+        arbol.style.display = "block";
+        arbol.classList.add("arbol");
+        arbol.style.left = Math.random() * 60 + "vw";
+        arbol.style.bottom = "0px";
+        arbol.style.animationDuration = "10s";
+        contenedor.appendChild(arbol);
+
+        setTimeout(() => {
+            arbol.remove();
+        }, 10000);
+    }
+
+    function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.innerHTML = "❄";
+        snowflake.classList.add("snowflake");
+
+        snowflake.style.left = Math.random() * 100 + "vw";
+        snowflake.style.animationDuration = (Math.random() * 3 + 5) + "s";
+        snowflake.style.opacity = Math.random();
+        snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 7000);
+    }
+
+    function detectarColision() {
+        let arboles = document.querySelectorAll(".arbol");
+        arboles.forEach(arbol => {
+            if (colision(esquiador, arbol)) {
+                alert("¡Perdiste! 🌲💥");
+                location.reload();
+            }
+        });
+    }
+
+    function colision(obj1, obj2) {
+        let rect1 = obj1.getBoundingClientRect();
+        let rect2 = obj2.getBoundingClientRect();
+
+        return !(
+            rect1.bottom < rect2.top ||
+            rect1.top > rect2.bottom ||
+            rect1.right < rect2.left ||
+            rect1.left > rect2.right
+        );
+    }
+
+    window.start = start;
 });
-
-
-
-//iniciar juego
-function start(){
-    i = document.getElementById('iniciar')
-    i.style.display = "none";
-    arbolito();
-}
-
-//creador de arbolito
-function arbolito() {
-            const arbol = document.getElementById("arbol");
-            //rbol.innerHTML = "🎄";
-            //arbol.classList.add("arbol");
-            arbol.style.left = Math.random() * 60  + "vw";
-            arbol.style.right = Math.random() * 15  + "vw";
-            arbol.style.animationDuration = (Math.random() * 9 + 2) + "s"; // Entre 2 y 5s
-            //arbol.style.opacity = Math.random();
-            //arbol.style.fontSize = (Math.random() * 10 + 10) + "px"; // Entre 10px y 20px
-
-            document.body.appendChild(cont-arbol);
-
-            setTimeout(() => {
-                arbol.remove();
-            }, 5000);
-        }
-
-        setInterval(arbolito, 1200);

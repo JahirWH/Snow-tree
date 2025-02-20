@@ -31,6 +31,13 @@
     margin: auto;
 
 }
+.contador{
+    position: absolute;
+    padding: 5px;
+    background-color: white;
+    right: 20px;
+    color: black;
+}
 .start{
     display: block;
     position: absolute;
@@ -99,7 +106,7 @@
             100% { transform: translateY(100vh) rotate(360deg); }
         }
 
-.cont-arbol{
+.cont_arbol{
     position: relative;
     width: 100%;
     height: 100%;
@@ -109,16 +116,23 @@
     z-index: 90;
 }
 .arbol {
+    display: none;
     position: absolute;
-    width: 50px;
+    width: 60px;
     justify-content: center;
     height: 70px;
+    bottom: -10px;
     background-size: cover;
-    animation: arbolito 2s infinite;
+    animation: arbolito 8s  infinite;
 }
 @keyframes arbolito {
-    0% { opacity: 1%; }
-    40% { opacity: 30%; }
-    70% { opacity: 70%; }
-    100% { opacity: 100%; }
+    0% { opacity: 3%; 
+        width: 10px;
+        height: 20px;
+    }
+
+
+    100% { opacity: 100%;
+    width: 60px;
+    height: 70px; }
 }
