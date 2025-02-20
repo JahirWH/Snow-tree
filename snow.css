@@ -21,7 +21,57 @@
 	position: relative;
 
 }
+.borde-contenedor img{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    color: #000;
+    bottom: 140px;
+    left: 45%;
+    margin: auto;
 
+}
+.start{
+    display: block;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(20,20,20,0.8);
+    height: 100%;
+    align-items: center;
+    z-index: 99;
+    text-align: center;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+
+
+}
+.start span{
+}
+.start span h2{
+    color:white;
+    letter-spacing: 3px;
+    margin-top: 40px;
+    position: relative;
+
+}
+.start button{
+    position: relative;
+    width: 400px;
+    height: 50px;
+    background-color: #ece6e6;
+    border-style: none;
+    border:4px solid grey;
+    font-size:20px;
+    letter-spacing: 10px;
+    font-family: serif;
+    cursor: pointer;
+    margin-top: 50px;
+}
+.start button:hover{
+    background-color: black;
+    border-color: white;
+    color: white;
+}
 
 
 .curva {
@@ -31,7 +81,7 @@
     width: 100%;
     height: 140px;
     background-color:#1119;
-    clip-path: ellipse(60% 100% at 50% 100%);
+    clip-path: ellipse(80% 100% at 50% 100%);
 }
 
 
@@ -48,3 +98,12 @@
             0% { transform: translateY(0px) rotate(0deg); }
             100% { transform: translateY(100vh) rotate(360deg); }
         }
+
+.arbol {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background-image: url("arbol.webp"); /* Imagen del árbol */
+    background-size: cover;
+    top: 0;
+}
