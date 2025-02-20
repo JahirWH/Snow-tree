@@ -44,24 +44,25 @@ document.addEventListener("DOMContentLoaded", function () {
 function start(){
     i = document.getElementById('iniciar')
     i.style.display = "none";
+    arbolito();
 }
 
 //creador de arbolito
 function arbolito() {
-            const arbol = document.createElement("div");
-            arbol.innerHTML = ;
-            snowflake.classList.add("snowflake");
+            const arbol = document.getElementById("arbol");
+            //rbol.innerHTML = "🎄";
+            //arbol.classList.add("arbol");
+            arbol.style.left = Math.random() * 60  + "vw";
+            arbol.style.right = Math.random() * 15  + "vw";
+            arbol.style.animationDuration = (Math.random() * 9 + 2) + "s"; // Entre 2 y 5s
+            //arbol.style.opacity = Math.random();
+            //arbol.style.fontSize = (Math.random() * 10 + 10) + "px"; // Entre 10px y 20px
 
-            snowflake.style.left = Math.random() * 100 + "vw";
-            snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s"; // Entre 2 y 5s
-            snowflake.style.opacity = Math.random();
-            snowflake.style.fontSize = (Math.random() * 10 + 10) + "px"; // Entre 10px y 20px
-
-            document.body.appendChild(snowflake);
+            document.body.appendChild(cont-arbol);
 
             setTimeout(() => {
-                snowflake.remove();
+                arbol.remove();
             }, 5000);
         }
 
-        setInterval(createSnowflake, 200);
+        setInterval(arbolito, 1200);

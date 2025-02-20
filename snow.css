@@ -99,11 +99,26 @@
             100% { transform: translateY(100vh) rotate(360deg); }
         }
 
+.cont-arbol{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 90;
+}
 .arbol {
     position: absolute;
     width: 50px;
+    justify-content: center;
     height: 70px;
-    background-image: url("arbol.webp"); /* Imagen del árbol */
     background-size: cover;
-    top: 0;
+    animation: arbolito 2s infinite;
+}
+@keyframes arbolito {
+    0% { opacity: 1%; }
+    40% { opacity: 30%; }
+    70% { opacity: 70%; }
+    100% { opacity: 100%; }
 }
