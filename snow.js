@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
         arbol.style.display = "block";
         arbol.classList.add("arbol");
         arbol.style.left = Math.random() * 60 + "vw";
-        arbol.style.bottom = "0px";
-        arbol.style.animationDuration = "10s";
-        contenedor.appendChild(arbol);
+        //arbol.style.bottom = "0px"; 
+        arbol.style.animationDuration = "8s";
+        co5ntenedor.appendChild(arbol);
 
         setTimeout(() => {
             arbol.remove();

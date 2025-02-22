@@ -21,12 +21,13 @@
 	position: relative;
 
 }
-.borde-contenedor img{
+.sky{
+    display: block;
     width: 100px;
     height: 100px;
     position: absolute;
     color: #000;
-    bottom: 140px;
+    bottom: 130px;
     left: 45%;
     margin: auto;
 
@@ -81,14 +82,24 @@
 }
 
 
+.limite_1 , .limite_2{
+    width: 100px;
+    height: auto;
+    position: absolute;
+   right: -51px;
+  bottom: 130px
+}
+.limite_2{
+   left:-51px;
+}
 .curva {
 
-	position: absolute;
+	position: relative;
 	bottom: 0px;
     width: 100%;
-    height: 140px;
+    height: 27%;
     background-color:#1119;
-    clip-path: ellipse(80% 100% at 50% 100%);
+    /*clip-path: ellipse(80% 100% at 50% 100%);*/
 }
 
 
@@ -109,30 +120,67 @@
 .cont_arbol{
     position: relative;
     width: 100%;
-    height: 100%;
+height: 74%;
     justify-content: center;
     align-items: center;
     display: flex;
     z-index: 90;
 }
 .arbol {
-    display: none;
+    display: block;
     position: absolute;
-    width: 60px;
+    width: 80px;
     justify-content: center;
-    height: 70px;
-    bottom: -10px;
+    height: 90px;
+    bottom: 0px;
     background-size: cover;
-    animation: arbolito 8s  infinite;
+    animation: arbolito 6s  linear;
 }
 @keyframes arbolito {
-    0% { opacity: 3%; 
-        width: 10px;
-        height: 20px;
+    0% { 
+        bottom: -38px;
+        opacity: 3%; 
+        transform: scaleY(0.1);
     }
+    10% { 
+  
+        transform: scaleY(0.2);
+    }
+    20% { 
+        opacity: 40%;
+        transform: scaleY(0.3);
+    }
+    30% { 
+    
+        transform: scaleY(0.4);
+    }
+    40% { 
+   
+        transform: scaleY(0.5);
+    }
+    50% { 
+        opacity: 70%;
+        transform: scaleY(0.6);
+    }
+    60% { 
+    
+        transform: scaleY(0.7);
+    }
+    70% { 
 
-
-    100% { opacity: 100%;
-    width: 60px;
-    height: 70px; }
+        transform: scaleY(0.8);
+    }
+    80% { 
+       
+        transform: scaleY(0.9);
+    }
+    90% { 
+       
+        transform: scaleY(0.95);
+    }
+    100% { 
+        opacity: 100%;
+        transform: scaleY(1);
+    }
 }
+
