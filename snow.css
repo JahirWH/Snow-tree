@@ -133,8 +133,9 @@ height: 74%;
     justify-content: center;
     height: 90px;
     bottom: 0px;
+    left: 10px;
     background-size: cover;
-    animation: arbolito 6s  linear;
+    animation: arbolito 4s  linear;
 }
 @keyframes arbolito {
     0% { 

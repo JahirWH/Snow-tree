@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const esquiador = document.querySelector(".borde-contenedor img");
-    const contenedor = document.querySelector(".borde-contenedor");
+    const contenedor = document.querySelector(".cont_arbol");
     const botonInicio = document.querySelector("#iniciar");
     let jugando = false;
     let posicionX = 45;
@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
         arbol.classList.add("arbol");
         arbol.style.left = Math.random() * 60 + "vw";
         //arbol.style.bottom = "0px"; 
-        arbol.style.animationDuration = "8s";
-        co5ntenedor.appendChild(arbol);
+        arbol.style.animationDuration = "4s";
+        contenedor.appendChild(arbol);
 
         setTimeout(() => {
             arbol.remove();
-        }, 10000);
+        }, 5000);
     }
 
     function createSnowflake() {
