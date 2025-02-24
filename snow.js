@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
+    setInterval(createSnowflake, 200); // Genera un copo de nieve cada 500ms
+});
+
+function createSnowflake(){
+    const snowflake = document.createElement("div");
+    snowflake.innerHTML = "❄";
+    snowflake.classList.add("snowflake");
+
+    snowflake.style.left = Math.random() * 100 + "vw";
+    snowflake.style.animationDuration = (Math.random() * 3 + 5) + "s";
+    snowflake.style.opacity = Math.random();
+    snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+
+    document.body.appendChild(snowflake);
+
+    setTimeout(() => {
+        snowflake.remove();
+    }, 7000);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
     const esquiador = document.querySelector(".borde-contenedor img");
     const contenedor = document.querySelector(".cont_arbol");
     const botonInicio = document.querySelector("#iniciar");
@@ -8,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function start() {
         botonInicio.style.display = "none";
         jugando = true;
-        setInterval(crearArbol, 8000);
-        setInterval(createSnowflake, 500);
+        setInterval(crearArbol, 3000);
+       // setInterval(createSnowflake, 500);
         setInterval(detectarColision, 100);
     }
 
@@ -36,39 +57,24 @@ document.addEventListener("DOMContentLoaded", function () {
         //arbol.style.bottom = "0px"; 
         arbol.style.animationDuration = "4s";
         contenedor.appendChild(arbol);
-
+    
+         // Esperar a que termine la animación antes de activar la colisión
+        arbol.addEventListener("animationend", () => {
+            setInterval(() => {
+                if (colision(esquiador, arbol)) {
+                    alert("¡Perdiste! 🌲💥");
+                    location.reload();
+                }
+            }, 100);
+        });
+        
         setTimeout(() => {
             arbol.remove();
         }, 5000);
     }
 
-    function createSnowflake() {
-        const snowflake = document.createElement("div");
-        snowflake.innerHTML = "❄";
-        snowflake.classList.add("snowflake");
-
-        snowflake.style.left = Math.random() * 100 + "vw";
-        snowflake.style.animationDuration = (Math.random() * 3 + 5) + "s";
-        snowflake.style.opacity = Math.random();
-        snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
-
-        document.body.appendChild(snowflake);
-
-        setTimeout(() => {
-            snowflake.remove();
-        }, 7000);
-    }
-
-    function detectarColision() {
-        let arboles = document.querySelectorAll(".arbol");
-        arboles.forEach(arbol => {
-            if (colision(esquiador, arbol)) {
-                alert("¡Perdiste! 🌲💥");
-                location.reload();
-            }
-        });
-    }
-
+ 
+    
     function colision(obj1, obj2) {
         let rect1 = obj1.getBoundingClientRect();
         let rect2 = obj2.getBoundingClientRect();
@@ -83,3 +89,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.start = start;
 });
+
