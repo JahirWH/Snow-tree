@@ -4,7 +4,7 @@
 
 ##  Descripción
 
-Este es un mini juego desarrollado con **JavaScript**, ideal para incluir en un portafolio web creativo. El jugador controla a un **esquiador** que baja por una montaña nevada evitando **chocar con los árboles**. Si colisionas... ¡pierdes! 🎄💥
+Este es un mini juego desarrollado con **JavaScript**. El jugador controla a un **esquiador** que baja por una montaña nevada evitando **chocar con los árboles**. Si colisionas... ¡pierdes! 🎄💥
 
 ## Características
 
